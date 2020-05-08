@@ -10,7 +10,7 @@
         <!--Card Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CardTableViewController" customModule="BasicJSONTableView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardTableViewController" id="BYZ-38-t0r" customClass="CardTableViewController" customModule="BasicJSONTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UITableView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
