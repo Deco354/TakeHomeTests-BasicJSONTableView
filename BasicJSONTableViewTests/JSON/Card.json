@@ -1,0 +1,27 @@
+{
+   "success":true,
+   "deck_id":"7k4oura1zlkt",
+   "cards":[
+      {
+         "code":"5H",
+         "image":"https://deckofcardsapi.com/static/img/5H.png",
+         "images":{
+            "svg":"https://deckofcardsapi.com/static/img/5H.svg",
+            "png":"https://deckofcardsapi.com/static/img/5H.png"
+         },
+         "value":"5",
+         "suit":"HEARTS"
+      },
+      {
+         "code":"3C",
+         "image":"https://deckofcardsapi.com/static/img/3C.png",
+         "images":{
+            "svg":"https://deckofcardsapi.com/static/img/3C.svg",
+            "png":"https://deckofcardsapi.com/static/img/3C.png"
+         },
+         "value":"3",
+         "suit":"CLUBS"
+      }
+   ],
+   "remaining":50
+}

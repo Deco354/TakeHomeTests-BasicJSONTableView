@@ -15,6 +15,9 @@
 		14749A582465616A0027639F /* CardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A572465616A0027639F /* CardTableViewControllerTests.swift */; };
 		14749A6324656E050027639F /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A6224656E050027639F /* CardTableViewController.swift */; };
 		14A105A32469575B00FA4D6B /* NetworkControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A105A22469575B00FA4D6B /* NetworkControllerTests.swift */; };
+		14DD96BC246AE130007D1923 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD96BB246AE130007D1923 /* Card.swift */; };
+		14DD96BF246AE264007D1923 /* Card.json in Resources */ = {isa = PBXBuildFile; fileRef = 14DD96BE246AE264007D1923 /* Card.json */; };
+		14DD96C1246AE39D007D1923 /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD96C0246AE39D007D1923 /* CardTests.swift */; };
 		14FD928124659A6E003918AC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD928024659A6E003918AC /* NetworkController.swift */; };
 		14FD928424659BC7003918AC /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FD928324659BC7003918AC /* NetworkSession.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,9 @@
 		14749A592465616A0027639F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14749A6224656E050027639F /* CardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewController.swift; sourceTree = "<group>"; };
 		14A105A22469575B00FA4D6B /* NetworkControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkControllerTests.swift; sourceTree = "<group>"; };
+		14DD96BB246AE130007D1923 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		14DD96BE246AE264007D1923 /* Card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Card.json; sourceTree = "<group>"; };
+		14DD96C0246AE39D007D1923 /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		14FD928024659A6E003918AC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		14FD928324659BC7003918AC /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +99,7 @@
 				14749A49246561690027639F /* Assets.xcassets */,
 				14749A4B246561690027639F /* LaunchScreen.storyboard */,
 				14749A4E246561690027639F /* Info.plist */,
+				14DD96BB246AE130007D1923 /* Card.swift */,
 			);
 			path = BasicJSONTableView;
 			sourceTree = "<group>";
@@ -100,11 +107,21 @@
 		14749A562465616A0027639F /* BasicJSONTableViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				14DD96BD246AE158007D1923 /* JSON */,
 				14749A572465616A0027639F /* CardTableViewControllerTests.swift */,
 				14A105A22469575B00FA4D6B /* NetworkControllerTests.swift */,
 				14749A592465616A0027639F /* Info.plist */,
+				14DD96C0246AE39D007D1923 /* CardTests.swift */,
 			);
 			path = BasicJSONTableViewTests;
+			sourceTree = "<group>";
+		};
+		14DD96BD246AE158007D1923 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				14DD96BE246AE264007D1923 /* Card.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		14FD928224659B8B003918AC /* Networking */ = {
@@ -207,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DD96BF246AE264007D1923 /* Card.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14FD928124659A6E003918AC /* NetworkController.swift in Sources */,
+				14DD96BC246AE130007D1923 /* Card.swift in Sources */,
 				14FD928424659BC7003918AC /* NetworkSession.swift in Sources */,
 				14749A41246561680027639F /* AppDelegate.swift in Sources */,
 				14749A43246561680027639F /* SceneDelegate.swift in Sources */,
@@ -229,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DD96C1246AE39D007D1923 /* CardTests.swift in Sources */,
 				14A105A32469575B00FA4D6B /* NetworkControllerTests.swift in Sources */,
 				14749A582465616A0027639F /* CardTableViewControllerTests.swift in Sources */,
 			);
