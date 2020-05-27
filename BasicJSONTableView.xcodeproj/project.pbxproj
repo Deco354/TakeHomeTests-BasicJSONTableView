@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1408FF48247EB2F2003C0FB1 /* Bundle+JSONTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408FF47247EB2F2003C0FB1 /* Bundle+JSONTesting.swift */; };
 		14749A41246561680027639F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A40246561680027639F /* AppDelegate.swift */; };
 		14749A43246561680027639F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A42246561680027639F /* SceneDelegate.swift */; };
 		14749A48246561680027639F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14749A46246561680027639F /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1408FF47247EB2F2003C0FB1 /* Bundle+JSONTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+JSONTesting.swift"; sourceTree = "<group>"; };
 		14749A3D246561680027639F /* BasicJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14749A40246561680027639F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14749A42246561680027639F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1408FF46247EB2A3003C0FB1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1408FF47247EB2F2003C0FB1 /* Bundle+JSONTesting.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		14749A34246561680027639F = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				14DD96BD246AE158007D1923 /* JSON */,
+				1408FF46247EB2A3003C0FB1 /* Utility */,
 				14749A572465616A0027639F /* CardTableViewControllerTests.swift */,
 				14A105A22469575B00FA4D6B /* NetworkControllerTests.swift */,
 				14749A592465616A0027639F /* Info.plist */,
@@ -248,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1408FF48247EB2F2003C0FB1 /* Bundle+JSONTesting.swift in Sources */,
 				14DD96C1246AE39D007D1923 /* CardTests.swift in Sources */,
 				14A105A32469575B00FA4D6B /* NetworkControllerTests.swift in Sources */,
 				14749A582465616A0027639F /* CardTableViewControllerTests.swift in Sources */,
