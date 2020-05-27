@@ -8,17 +8,13 @@
 
 import Foundation
 
-    // MARK: - CardResponse
-    struct CardResponse: Decodable, Equatable {
-        let cards: [Card]
-        
-        enum CodingKeys: String, CodingKey {
-            case cards
-        }
-        
-        // MARK: - Card
-        struct Card: Decodable, Equatable {
-            let image: String
-            let value: String
-        }
-    }
+// MARK: - Card
+struct Card: Decodable, Equatable {
+    let image: String
+    let value: String
+}
+
+// MARK: - CardResponse
+struct CardResponse: Decodable, Equatable {
+    let cards: [Card]
+}

@@ -13,7 +13,7 @@ class CardTests: XCTestCase {
     let decoder = JSONDecoder()
     
     func testDecodeValidJSON() {
-        let expectedCards = [CardResponse.Card(image: "https://deckofcardsapi.com/static/img/5H.png", value: "5"), CardResponse.Card(image: "https://deckofcardsapi.com/static/img/3C.png", value: "3")]
+        let expectedCards = [Card(image: "https://deckofcardsapi.com/static/img/5H.png", value: "5"), Card(image: "https://deckofcardsapi.com/static/img/3C.png", value: "3")]
         
         let validJSON = jsonData(forResource: "Card")
         do {
