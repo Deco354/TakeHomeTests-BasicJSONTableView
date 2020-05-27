@@ -22,6 +22,14 @@ class NetworkController {
             guard let data = data else { return completionHandler(.failure(NetworkError.noData)) }
             guard let response = response as? HTTPURLResponse else { return completionHandler(.failure(NetworkError.invalidResponse))}
             guard (200...299).contains(response.statusCode) else { return completionHandler(.failure(NetworkError.networkError(code: response.statusCode)))}
+            
+            let decoder = JSONDecoder()
+            do {
+                let decodedResponse = try decoder.decode(CardResponse.self, from: data)
+                completionHandler(.success(decodedResponse.cards))
+            } catch {
+                completionHandler(.failure(NetworkError.decodingError))
+            }
         }
     }
 }

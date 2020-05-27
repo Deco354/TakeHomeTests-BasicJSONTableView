@@ -11,6 +11,15 @@ import XCTest
 
 class NetworkControllerTests: XCTestCase {
 
+    func testSuccessfulRequest() {
+        let jsonData = Bundle(for: Self.self).jsonData(forResource: "Card")
+        let stubURLSession = MockURLSession(data: jsonData, response: HTTPURLResponse(statusCode: 200), error: nil)
+        let networkController = NetworkController(session: stubURLSession)
+        networkController.request(from: stubURL) { result in
+            XCTAssertNotNil(try? result.get())
+        }
+    }
+    
     func testDatalessRequest() {
         let networkController = NetworkController(session: MockURLSession(data: nil, response: HTTPURLResponse(statusCode: 200), error: nil))
         networkController.request(from: stubURL) {result in
