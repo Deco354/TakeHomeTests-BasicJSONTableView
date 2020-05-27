@@ -13,13 +13,15 @@ class CardTests: XCTestCase {
     let decoder = JSONDecoder()
     
     func testDecodeValidJSON() {
+        let expectedCards = [CardResponse.Card(image: "https://deckofcardsapi.com/static/img/5H.png", value: "5"), CardResponse.Card(image: "https://deckofcardsapi.com/static/img/3C.png", value: "3")]
+        
         let validJSON = jsonData(forResource: "Card")
         do {
-            let decodedCards = try decoder.decode([Card].self, from: validJSON)
+            let decodedCards = try decoder.decode(CardResponse.self, from: validJSON).cards
+            XCTAssertEqual(decodedCards, expectedCards)
         } catch(let error) {
             XCTFail("JSON Parsing failed with error: \(error)")
         }
-        
     }
 
 }

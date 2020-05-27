@@ -15,7 +15,7 @@ class NetworkController {
         self.session = session
     }
     
-    func request(from url: URL, completionHandler: @escaping (Result<Card, NetworkError>) -> Void) {
+    func request(from url: URL, completionHandler: @escaping (Result<CardResponse, NetworkError>) -> Void) {
         session.runDataTask(with: url) { data, response, error in
             
             guard error == nil else { return completionHandler(Result.failure(NetworkError.requestFailure))}
@@ -32,5 +32,3 @@ enum NetworkError: Error, Equatable {
     case networkError(code: Int)
     case requestFailure
 }
-
-struct Card: Decodable {}

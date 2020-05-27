@@ -36,7 +36,6 @@ class NetworkControllerTests: XCTestCase {
 private extension NetworkControllerTests {
     var stubURL: URL { URL(fileURLWithPath: "test.com") }
     var nonHTTPResponse: URLResponse { URLResponse() }
-//    var failedResponse: HTTPURLResponse { HTTPURLResponse(}
 }
 
 private extension HTTPURLResponse {
@@ -61,11 +60,5 @@ private extension NetworkControllerTests {
         func runDataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
             completionHandler(data, response, error)
         }
-    }
-}
-
-extension Card: Equatable {
-    public static func ==(lhs: Self, rhs: Self) -> Bool {
-        return true
     }
 }
