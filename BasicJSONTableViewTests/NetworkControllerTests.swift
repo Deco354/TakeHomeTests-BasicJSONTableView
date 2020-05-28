@@ -23,21 +23,23 @@ class NetworkControllerTests: XCTestCase {
     func testDatalessRequest() {
         let networkController = NetworkController(session: MockURLSession(data: nil, response: HTTPURLResponse(statusCode: 200), error: nil))
         networkController.request(from: stubURL) {result in
-            XCTAssertEqual(result, Result.failure(.noData))
+            guard case let .failure(error) = result, case .noData = error else {
+                return XCTFail()
+            }
         }
     }
     
     func testFailedRequest() {
-        let networkController = NetworkController(session: MockURLSession(data: nil, response: nil, error: NSError()))
+        let networkController = NetworkController(session: MockURLSession(data: nil, response: nil, error: testError))
         networkController.request(from: stubURL) { result in
-            XCTAssertEqual(result, Result.failure(.requestFailure))
+            XCTAssertEqual(result, Result.failure(NetworkError.requestFailure(error: self.testError)))
         }
     }
-  
+
     func testNetworkError() {
         let networkController = NetworkController(session: MockURLSession(data: Data(), response: HTTPURLResponse(statusCode: 102), error: nil))
         networkController.request(from: stubURL) { result in
-            XCTAssertEqual(result, Result.failure(.networkError(code: 102)))
+            XCTAssertEqual(result, Result.failure(NetworkError.networkError(code: 102)))
         }
     }
 }
@@ -45,12 +47,29 @@ class NetworkControllerTests: XCTestCase {
 private extension NetworkControllerTests {
     var stubURL: URL { URL(fileURLWithPath: "test.com") }
     var nonHTTPResponse: URLResponse { URLResponse() }
+    var testError: NSError { NSError(domain: "", code: 0) }
 }
 
 private extension HTTPURLResponse {
     convenience init(statusCode: Int) {
         self.init(url: URL(fileURLWithPath: "test.com"), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
     }
+}
+
+extension NetworkError: Equatable {
+    public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        switch(lhs,rhs) {
+        case let (.networkError(lhsErrorCode),.networkError(rhsErrorCode)):
+            return lhsErrorCode == rhsErrorCode
+        case let(.requestFailure(lhsError),.requestFailure(rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        default:
+            return lhs.self == rhs.self
+        }
+    }
+    
+    
+    
 }
 
 private extension NetworkControllerTests {

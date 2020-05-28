@@ -18,7 +18,7 @@ class NetworkController {
     func request(from url: URL, completionHandler: @escaping (Result<[Card], NetworkError>) -> Void) {
         session.runDataTask(with: url) { data, response, error in
             
-            guard error == nil else { return completionHandler(Result.failure(NetworkError.requestFailure))}
+            guard error == nil else { return completionHandler(Result.failure(NetworkError.requestFailure(error: error!)))}
             guard let data = data else { return completionHandler(.failure(NetworkError.noData)) }
             guard let response = response as? HTTPURLResponse else { return completionHandler(.failure(NetworkError.invalidResponse))}
             guard (200...299).contains(response.statusCode) else { return completionHandler(.failure(NetworkError.networkError(code: response.statusCode)))}
@@ -34,10 +34,10 @@ class NetworkController {
     }
 }
 
-enum NetworkError: Error, Equatable {
+enum NetworkError: Error {
     case noData
     case invalidResponse
     case networkError(code: Int)
-    case requestFailure
+    case requestFailure(error: Error)
     case decodingError
 }
