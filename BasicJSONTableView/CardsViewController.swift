@@ -11,6 +11,7 @@ import Foundation
 
 class CardsViewController: UITableViewController {
     var cards: [Card]?
+    var cardImages = [UIImage?]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,9 @@ class CardsViewController: UITableViewController {
                 switch result {
                 case .success(let cards):
                     self?.cards = cards
+                    self?.cardImages = Array.init(repeating: nil, count: cards.count)
                     self?.tableView.reloadData()
+                    self?.downloadImages(from: cards.map{ $0.image })
                 case .failure(let error):
                     print(error)
                 }
@@ -31,7 +34,7 @@ class CardsViewController: UITableViewController {
     private func requestCards(completionHandler:@escaping (Result<[Card],NetworkCallError>) -> Void ) {
         
         let session = URLSession.shared
-        session.dataTask(with: URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!) { [weak self] data, response, error in
+        session.dataTask(with: URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!) { data, response, error in
             guard let data = data else {
                 completionHandler(.failure(.noData))
                 return
@@ -47,6 +50,21 @@ class CardsViewController: UITableViewController {
             }
         }.resume()
     }
+    
+    //Todo: Handle errors
+    private func downloadImages(from urls: [URL]) {
+        DispatchQueue.global().async { [weak self] in
+            for (index, imageURL) in urls.enumerated() {
+                if let data = try? Data(contentsOf: imageURL),
+                    let image = UIImage(data: data) {
+                    self?.cardImages[index] = image
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData() //Find way to do this without reloading entire table each time
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension CardsViewController {
@@ -56,6 +74,7 @@ extension CardsViewController {
         
         let card = cards[indexPath.row]
         cell.textLabel?.text = "\(card.value) of \(card.suit)"
+        cell.imageView?.image = cardImages[indexPath.row]
         return cell
     }
     
