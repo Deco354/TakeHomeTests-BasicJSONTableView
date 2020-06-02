@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import Foundation
 
 class CardsViewController: UITableViewController {
-    
     var cards: [Card]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         requestCards { [weak self] result in
-            switch result {
-            case .success(let cards):
-                self?.cards = cards
-                print(cards)
-            case .failure(let error):
-                print(error)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let cards):
+                    self?.cards = cards
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }
@@ -44,6 +46,25 @@ class CardsViewController: UITableViewController {
                 completionHandler(.failure(.decodeFailure(error: error as! DecodingError)))
             }
         }.resume()
+    }
+}
+
+extension CardsViewController {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        guard let cards = cards else { return cell }
+        
+        let card = cards[indexPath.row]
+        cell.textLabel?.text = "\(card.value) of \(card.suit)"
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cards?.count ?? 0
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }
 
