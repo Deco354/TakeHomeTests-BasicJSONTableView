@@ -16,26 +16,7 @@ class CardsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networking.requestCards { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let cards):
-                    self?.cards = cards
-                    self?.tableView.reloadData()
-                    
-                    
-                    self?.cardImages = Array.init(repeating: nil, count: cards.count)
-                    for (index, card) in cards.enumerated() {
-                        self?.networking.downloadImage(from: card.image) { result in
-                            self?.cardImages[index] = try? result.get()
-                            DispatchQueue.main.async { self?.tableView.reloadData() }
-                        }
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
+        downloadCards()
     }
 }
 
@@ -56,6 +37,39 @@ extension CardsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+}
+
+private extension CardsViewController {
+    func downloadCards() {
+        networking.requestCards { [weak self] result in
+                switch result {
+                case .success(let cards):
+                    self?.cards = cards
+                    self?.refreshTable()
+                    self?.downloadCardImages()
+                case .failure(let error):
+                    print(error)
+                }
+        }
+    }
+    
+    private func refreshTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func downloadCardImages() {
+        guard let cards = cards else { return }
+        
+        cardImages = Array.init(repeating: nil, count: cards.count)
+        for (index, card) in cards.enumerated() {
+            networking.downloadImage(from: card.image) { result in
+                self.cardImages[index] = try? result.get()
+                self.refreshTable()
+            }
+        }
     }
 }
 
