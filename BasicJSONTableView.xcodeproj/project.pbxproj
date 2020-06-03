@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1409A5A924865AA300E33E90 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409A5A824865AA300E33E90 /* Card.swift */; };
+		144743772487E26D0015D94F /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144743762487E26D0015D94F /* NetworkController.swift */; };
 		14749A41246561680027639F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A40246561680027639F /* AppDelegate.swift */; };
 		14749A43246561680027639F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A42246561680027639F /* SceneDelegate.swift */; };
 		14749A45246561680027639F /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A44246561680027639F /* CardsViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1409A5A824865AA300E33E90 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		144743762487E26D0015D94F /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		14749A3D246561680027639F /* BasicJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14749A40246561680027639F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14749A42246561680027639F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				14749A42246561680027639F /* SceneDelegate.swift */,
 				14749A44246561680027639F /* CardsViewController.swift */,
 				1409A5A824865AA300E33E90 /* Card.swift */,
+				144743762487E26D0015D94F /* NetworkController.swift */,
 				14749A46246561680027639F /* Main.storyboard */,
 				14749A49246561690027639F /* Assets.xcassets */,
 				14749A4B246561690027639F /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144743772487E26D0015D94F /* NetworkController.swift in Sources */,
 				14749A45246561680027639F /* CardsViewController.swift in Sources */,
 				14749A41246561680027639F /* AppDelegate.swift in Sources */,
 				14749A43246561680027639F /* SceneDelegate.swift in Sources */,
