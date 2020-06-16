@@ -16,6 +16,8 @@
 		14749A4A246561690027639F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14749A49246561690027639F /* Assets.xcassets */; };
 		14749A4D246561690027639F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14749A4B246561690027639F /* LaunchScreen.storyboard */; };
 		14749A582465616A0027639F /* BasicJSONTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A572465616A0027639F /* BasicJSONTableViewTests.swift */; };
+		14BA9EC72492624B00F64EB3 /* Cards.json in Resources */ = {isa = PBXBuildFile; fileRef = 14BA9EC62492624B00F64EB3 /* Cards.json */; };
+		14BA9EC92492656600F64EB3 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA9EC82492656600F64EB3 /* JSONLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		14749A532465616A0027639F /* BasicJSONTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicJSONTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14749A572465616A0027639F /* BasicJSONTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicJSONTableViewTests.swift; sourceTree = "<group>"; };
 		14749A592465616A0027639F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14BA9EC62492624B00F64EB3 /* Cards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cards.json; sourceTree = "<group>"; };
+		14BA9EC82492656600F64EB3 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14403F8B249246E4004B917A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				14BA9EC82492656600F64EB3 /* JSONLoader.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		14749A34246561680027639F = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +111,20 @@
 		14749A562465616A0027639F /* BasicJSONTableViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				14BA9EC52492620D00F64EB3 /* JSON */,
+				14403F8B249246E4004B917A /* Utilities */,
 				14749A572465616A0027639F /* BasicJSONTableViewTests.swift */,
 				14749A592465616A0027639F /* Info.plist */,
 			);
 			path = BasicJSONTableViewTests;
+			sourceTree = "<group>";
+		};
+		14BA9EC52492620D00F64EB3 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				14BA9EC62492624B00F64EB3 /* Cards.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14BA9EC72492624B00F64EB3 /* Cards.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14BA9EC92492656600F64EB3 /* JSONLoader.swift in Sources */,
 				14749A582465616A0027639F /* BasicJSONTableViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
