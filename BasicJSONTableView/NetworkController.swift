@@ -18,6 +18,13 @@ class NetworkController {
     
     func requestCards(completionHandler:@escaping (Result<[Card],NetworkCallError>) -> Void ) {
         session.dataTask(with: URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!) { data, response, error in
+            
+            guard error == nil else {
+                print(error?.localizedDescription ?? "")
+                completionHandler(.failure(.requestError))
+                return
+            }
+            
             guard let data = data else {
                 completionHandler(.failure(.noData))
                 return
