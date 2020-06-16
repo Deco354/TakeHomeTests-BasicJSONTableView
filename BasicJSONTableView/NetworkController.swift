@@ -28,7 +28,7 @@ class NetworkController {
                 let deckOfCards = try decoder.decode(Cards.self, from: data)
                 completionHandler(.success(deckOfCards.cards))
             } catch {
-                completionHandler(.failure(.decodeFailure(error: error as! DecodingError)))
+                completionHandler(.failure(.decodeFailure))
             }
         }.resume()
     }

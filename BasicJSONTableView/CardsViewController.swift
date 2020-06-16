@@ -74,8 +74,9 @@ private extension CardsViewController {
 }
 
 // Handle request errors later
-enum NetworkCallError: Error {
+enum NetworkCallError: Error, Equatable {
     case noData
-    case decodeFailure(error: DecodingError)
+    case decodeFailure // Handle testable nested error later
+    case requestError
 }
 
