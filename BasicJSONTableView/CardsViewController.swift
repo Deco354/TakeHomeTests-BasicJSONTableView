@@ -12,7 +12,6 @@ import Foundation
 class CardsViewController: UITableViewController {
     var networking: NetworkController = NetworkController() //Change to use protocol
     var cards: [Card]?
-    var cardImages = [UIImage?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ extension CardsViewController {
         
         let card = cards[indexPath.row]
         cell.textLabel?.text = "\(card.value) of \(card.suit)"
-        cell.imageView?.image = cardImages[indexPath.row]
+        cell.imageView?.image = cards[indexPath.row].image
         return cell
     }
     
@@ -64,11 +63,10 @@ private extension CardsViewController {
     private func downloadCardImages() {
         guard let cards = cards else { return }
         
-        cardImages = Array.init(repeating: nil, count: cards.count)
         for (index, card) in cards.enumerated() {
             // weak self is not needed here because self and the references self holds (networking) hold no reference to this closure
             networking.downloadImage(from: card.imageURL) { result in
-                self.cardImages[index] = try? result.get()
+                self.cards?[index].image = try? result.get()
                 self.refreshTable()
             }
         }

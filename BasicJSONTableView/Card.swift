@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 struct Cards: Decodable {
     let cards: [Card]
@@ -16,6 +17,7 @@ struct Card: Decodable {
     let imageURL: URL
     let value: String
     let suit: String
+    var image: UIImage? // This should be adapted to have value semantics
     
     private enum CodingKeys: String, CodingKey {
         case imageURL = "image"
