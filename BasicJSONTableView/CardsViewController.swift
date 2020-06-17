@@ -60,6 +60,12 @@ private extension CardsViewController {
         }
     }
     
+    private func refreshRow(_ row: Int) {
+        DispatchQueue.main.async {
+            self.tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .none)
+        }
+    }
+    
     private func downloadCardImages() {
         guard let cards = cards else { return }
         
@@ -67,7 +73,7 @@ private extension CardsViewController {
             // weak self is not needed here because self and the references self holds (networking) hold no reference to this closure
             networking.downloadImage(from: card.imageURL) { result in
                 self.cards?[index].image = try? result.get()
-                self.refreshTable()
+                self.refreshRow(index)
             }
         }
     }
