@@ -13,7 +13,12 @@ struct Cards: Decodable {
 }
 
 struct Card: Decodable {
-    let image: URL //change name later
+    let imageURL: URL
     let value: String
     let suit: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case imageURL = "image"
+        case value, suit
+    }
 }
