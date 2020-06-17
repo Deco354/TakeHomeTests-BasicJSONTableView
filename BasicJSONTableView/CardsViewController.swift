@@ -42,12 +42,13 @@ extension CardsViewController {
 
 private extension CardsViewController {
     func downloadCards() {
-        networking.requestCards { [weak self] result in
+        // weak reference is not needed here because neither networking or self have reference to this closure
+        networking.requestCards { result in
                 switch result {
                 case .success(let cards):
-                    self?.cards = cards
-                    self?.refreshTable()
-                    self?.downloadCardImages()
+                    self.cards = cards
+                    self.refreshTable()
+                    self.downloadCardImages()
                 case .failure(let error):
                     print(error)
                 }
@@ -65,6 +66,7 @@ private extension CardsViewController {
         
         cardImages = Array.init(repeating: nil, count: cards.count)
         for (index, card) in cards.enumerated() {
+            // weak self is not needed here because self and the references self holds (networking) hold no reference to this closure
             networking.downloadImage(from: card.image) { result in
                 self.cardImages[index] = try? result.get()
                 self.refreshTable()
