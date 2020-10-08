@@ -3,17 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		14749A41246561680027639F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A40246561680027639F /* AppDelegate.swift */; };
 		14749A43246561680027639F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A42246561680027639F /* SceneDelegate.swift */; };
-		14749A45246561680027639F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A44246561680027639F /* ViewController.swift */; };
+		14749A45246561680027639F /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A44246561680027639F /* CardsViewController.swift */; };
 		14749A48246561680027639F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14749A46246561680027639F /* Main.storyboard */; };
 		14749A4A246561690027639F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14749A49246561690027639F /* Assets.xcassets */; };
 		14749A4D246561690027639F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14749A4B246561690027639F /* LaunchScreen.storyboard */; };
 		14749A582465616A0027639F /* BasicJSONTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14749A572465616A0027639F /* BasicJSONTableViewTests.swift */; };
+		B64CBCC1252F1CAA00EDB492 /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CBCC0252F1CAA00EDB492 /* CardStore.swift */; };
+		B64CBCC6252F1F7D00EDB492 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64CBCC5252F1F7D00EDB492 /* APIService.swift */; };
+		B64CBCE9252F23A600EDB492 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B64CBCE8252F23A600EDB492 /* SDWebImage */; };
+		B64CBCEB252F23A600EDB492 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B64CBCEA252F23A600EDB492 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +34,7 @@
 		14749A3D246561680027639F /* BasicJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14749A40246561680027639F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14749A42246561680027639F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		14749A44246561680027639F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14749A44246561680027639F /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		14749A47246561680027639F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14749A49246561690027639F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14749A4C246561690027639F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		14749A532465616A0027639F /* BasicJSONTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasicJSONTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14749A572465616A0027639F /* BasicJSONTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicJSONTableViewTests.swift; sourceTree = "<group>"; };
 		14749A592465616A0027639F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B64CBCC0252F1CAA00EDB492 /* CardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
+		B64CBCC5252F1F7D00EDB492 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64CBCEB252F23A600EDB492 /* SDWebImageMapKit in Frameworks */,
+				B64CBCE9252F23A600EDB492 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +89,9 @@
 			children = (
 				14749A40246561680027639F /* AppDelegate.swift */,
 				14749A42246561680027639F /* SceneDelegate.swift */,
-				14749A44246561680027639F /* ViewController.swift */,
+				14749A44246561680027639F /* CardsViewController.swift */,
+				B64CBCC5252F1F7D00EDB492 /* APIService.swift */,
+				B64CBCC0252F1CAA00EDB492 /* CardStore.swift */,
 				14749A46246561680027639F /* Main.storyboard */,
 				14749A49246561690027639F /* Assets.xcassets */,
 				14749A4B246561690027639F /* LaunchScreen.storyboard */,
@@ -115,6 +125,10 @@
 			dependencies = (
 			);
 			name = BasicJSONTableView;
+			packageProductDependencies = (
+				B64CBCE8252F23A600EDB492 /* SDWebImage */,
+				B64CBCEA252F23A600EDB492 /* SDWebImageMapKit */,
+			);
 			productName = BasicJSONTableView;
 			productReference = 14749A3D246561680027639F /* BasicJSONTableView.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +179,9 @@
 				Base,
 			);
 			mainGroup = 14749A34246561680027639F;
+			packageReferences = (
+				B64CBCE7252F23A600EDB492 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 14749A3E246561680027639F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14749A45246561680027639F /* ViewController.swift in Sources */,
+				14749A45246561680027639F /* CardsViewController.swift in Sources */,
+				B64CBCC6252F1F7D00EDB492 /* APIService.swift in Sources */,
+				B64CBCC1252F1CAA00EDB492 /* CardStore.swift in Sources */,
 				14749A41246561680027639F /* AppDelegate.swift in Sources */,
 				14749A43246561680027639F /* SceneDelegate.swift in Sources */,
 			);
@@ -469,6 +488,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B64CBCE7252F23A600EDB492 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B64CBCE8252F23A600EDB492 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B64CBCE7252F23A600EDB492 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		B64CBCEA252F23A600EDB492 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B64CBCE7252F23A600EDB492 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14749A35246561680027639F /* Project object */;
 }
