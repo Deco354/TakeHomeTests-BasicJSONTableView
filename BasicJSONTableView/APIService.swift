@@ -8,42 +8,43 @@
 
 import Foundation
 
-
 class APIService {
 
-  let session: URLSession
-  let jsonDecoder = JSONDecoder()
-  var cards: Cards?
+    let session: URLSession
+    let jsonDecoder = JSONDecoder()
+    var cards: Cards?
 
-  lazy var urlRequest: URLRequest = {
-    let url = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=12#")!
-    return URLRequest(url: url)
-  }()
+    lazy var urlRequest: URLRequest = {
+        let url = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=12#")!
+        return URLRequest(url: url)
+    }()
 
-  init(session: URLSession = URLSession.shared) {
-    self.session = session
-  }
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
 
-  func getCardsFromServer(completion: @escaping (Result<[Card],Error>) -> Void) {
-    session.dataTask(with: self.urlRequest) { data, response, error in
+    func getCardsFromServer(completion: @escaping (Result<[Card],Error>) -> Void) {
+        session.dataTask(with: self.urlRequest) { data, response, error in
 
-      guard let data = data else { fatalError("Missing data") }
+            guard let data = data else { fatalError("Missing data") }
 
-      guard let httpResponse = response as? HTTPURLResponse,
-                (200...299).contains(httpResponse.statusCode) else {
-        print("Error with the response, unexpected status code: \(String(describing: response))")
-        return
-      }
-      if let err = error {
-        completion(.failure(err))
-        return
-      }
-      do {
-        let cards = try self.jsonDecoder.decode(Cards.self, from: data)
-        self.cards = cards
-      } catch let error as NSError {
-        print(error.localizedDescription)
-      }
-    }.resume()
-  }
+            print(response!)
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                print("Error with the response, unexpected status code: \(String(describing: response))")
+                return
+            }
+            if let err = error {
+                completion(.failure(err))
+                return
+            }
+            do {
+                let cards = try self.jsonDecoder.decode(Cards.self, from: data)
+                completion(.success(cards.cards))
+                self.cards = cards
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
 }
